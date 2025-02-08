@@ -1,0 +1,61 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avalon TierList</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <img src="https://cdn.discordapp.com/attachments/1314409474483683418/1329200110738997341/Proyecto_nuevo_4.png?ex=67897991&is=67882811&hm=1e2a025501f80ea9082e876907184d77008ab3bec22494749175a672517ac6fa" alt="Logo Avalon">
+      </div>
+      <a href="#" id="menuToggle" class="menu-toggle" style="font-size:2rem; color:#fff;">☰</a>
+    </div>
+    <div class="banner">Avalon TierList</div>
+    <input type="text" id="search" placeholder="Buscar por Nick..." oninput="filterPlayers()">
+  </header>
+
+  <div id="sidebar" class="sidebar">
+    <ul>
+      <li><a href="#ranking">Ranking General</a></li>
+      <li><a href="https://discord.com/invite/ZWSxH2YAKU" target="_blank">Discord</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <!-- Ranking General -->
+    <section id="ranking">
+      <h2 style="text-align:center; margin-bottom:20px;">Ranking General</h2>
+      <div class="players" id="players">
+        <!-- Aquí se inyectarán las tarjetas de ranking general -->
+      </div>
+    </section>
+
+    <!-- Ranking por Modalidad -->
+    <section class="modalities-ranking">
+      <h2>Ranking por Modalidad</h2>
+      <!-- Aquí se inyectarán las secciones de modalidades -->
+    </section>
+  </div>
+
+  <footer>
+    Creado por Bigcuts
+  </footer>
+
+  <!-- Modal de detalles del jugador -->
+  <div id="player-details" class="player-details">
+    <h2 id="player-name"></h2>
+    <img id="player-avatar-detail" src="" alt="Avatar" class="player-avatar-detail">
+    <div id="player-modalities"></div>
+    <p id="player-discord"></p>
+    <button onclick="closePlayerDetails()">Cerrar</button>
+  </div>
+
+  <script src="/scripts.js"></script>
+</body>
+</html>

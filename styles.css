@@ -1,0 +1,295 @@
+/* public/styles.css */
+/* Variables CSS */
+:root {
+  --primary-color: #4ca1af;
+  --secondary-color: #2c3e50;
+  --accent-color: #1abc9c;
+  --bg-gradient: linear-gradient(135deg, #f0f2f5, #ffffff);
+  --transition-speed: 0.3s;
+  --border-radius: 12px;
+}
+/* Reset y estilos globales */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-gradient);
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
+html { scroll-behavior: smooth; }
+/* Header */
+header {
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  color: #fff;
+  padding: 20px 15px;
+  text-align: center;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.2);
+  position: relative;
+  animation: headerFadeIn 1s ease;
+}
+@keyframes headerFadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+header .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+header .navbar .logo img {
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  transition: transform var(--transition-speed);
+}
+header .navbar .logo img:hover {
+  transform: scale(1.1);
+}
+header input[type="text"] {
+  padding: 12px 20px;
+  width: 70%;
+  margin: 15px auto 0;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  outline: none;
+  background-color: #fff;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  display: block;
+  transition: box-shadow var(--transition-speed);
+}
+header input[type="text"]:focus {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+}
+.banner {
+  font-size: 2.8rem;
+  font-weight: 600;
+  margin-top: 5px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+/* Menú lateral */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: var(--secondary-color);
+  color: #fff;
+  padding-top: 30px;
+  transition: left var(--transition-speed) ease;
+  z-index: 1000;
+}
+.sidebar.show {
+  left: 0;
+}
+.sidebar ul { list-style: none; }
+.sidebar ul li {
+  padding: 15px 25px;
+  border-bottom: 1px solid #1f2a36;
+}
+.sidebar ul li a {
+  font-size: 18px;
+  display: block;
+  transition: padding-left var(--transition-speed);
+}
+.sidebar ul li a:hover {
+  padding-left: 15px;
+  background-color: var(--accent-color);
+}
+/* Contenedor principal */
+.container {
+  padding: 30px;
+  margin-top: 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Tarjetas de Ranking */
+.players {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+.player {
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  width: 240px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+.player:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+.player-avatar-container {
+  padding: 15px;
+  background-color: #f7f7f7;
+}
+.player-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-color);
+}
+.player-info {
+  padding: 20px;
+}
+.player-name {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.total-points {
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.total-points img {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+}
+/* Ranking por Modalidad */
+.modalities-ranking {
+  margin-top: 50px;
+}
+.modalities-ranking h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+.modality-section {
+  margin-bottom: 40px;
+  animation: fadeIn 1s ease;
+}
+.modality-section h3 {
+  margin-bottom: 15px;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  display: inline-block;
+  padding-bottom: 5px;
+  font-size: 1.8rem;
+}
+.modality-players {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.modality-player {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px 10px;
+  text-align: center;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+  transition: transform var(--transition-speed);
+}
+.modality-player:hover {
+  transform: translateY(-3px);
+}
+.modality-player img.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+  margin-bottom: 8px;
+}
+.modality-player p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+/* Modal de Detalles del Jugador */
+.player-details {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 30px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  z-index: 1001;
+  border-radius: var(--border-radius);
+  max-width: 450px;
+  width: 90%;
+  text-align: center;
+  animation: fadeIn 0.6s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -45%); }
+  to { opacity: 1; transform: translate(-50%, -50%); }
+}
+.player-avatar-detail {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 4px solid var(--primary-color);
+}
+.player-details h2 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+.player-details p {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+.player-details img.icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+button {
+  margin-top: 20px;
+  padding: 12px 18px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color var(--transition-speed), transform 0.2s ease;
+}
+button:hover {
+  background-color: #3a8b9c;
+  transform: scale(1.03);
+}
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: var(--secondary-color);
+  color: #fff;
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
+/* Íconos en el modal */
+.player-details .icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+/* Ajustes responsivos */
+@media(max-width: 768px) {
+  header input[type="text"] {
+    width: 90%;
+  }
+  .banner {
+    font-size: 2.4rem;
+  }
+}
